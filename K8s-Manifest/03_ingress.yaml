@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: singularity
+  name: singularity-web
   namespace: singularity
 spec:
   rules:
@@ -17,3 +17,23 @@ spec:
       - backend:
           serviceName: singularity-frontend
           servicePort: 80
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: singularity-api
+  namespace: singularity
+spec:
+  rules:
+  - host: onetrustapi.calavelas.int
+    http:
+      paths:
+      - backend:
+          serviceName: singularity-backend
+          servicePort: 8000
+  - host: onetrustapi.calavelas.net
+    http:
+      paths:
+      - backend:
+          serviceName: singularity-backend
+          servicePort: 8000
