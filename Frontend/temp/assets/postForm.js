@@ -21,7 +21,7 @@ myForm.addEventListener('submit', function (e){
 
     console.log(requestOptions)
 
-    fetch("singularity-backend.singularity/api/", requestOptions)
+    fetch("http://onetrustapi.calavelas.net/api/", requestOptions)
     .then(response => response.json())
     .then(result => {
         console.log(result)
