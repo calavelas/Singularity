@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: singularity-backend
-        image: calavelas/singularity_backend:0.1
+        image: calavelas/arm_singularity_backend:0.1
         ports:
         - containerPort: 8000
 ---
@@ -36,6 +36,6 @@ spec:
     spec:
       containers:
       - name: singularity-frontend
-        image: calavelas/singularity_frontend:0.1
+        image: calavelas/arm_singularity_frontend:0.1
         ports:
         - containerPort: 80

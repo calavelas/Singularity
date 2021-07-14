@@ -20,4 +20,4 @@ spec:
   - port: 80
     targetPort: 80
   selector:
-    app: singularity-backend
+    app: singularity-frontend
