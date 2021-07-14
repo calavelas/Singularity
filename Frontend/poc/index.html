@@ -47,7 +47,7 @@
         <form class="needs-validation" id="postForm" novalidate>
           <div class="row g-3">
             <div class="col-12">
-              <label for="siteUrl" class="form-label"><b>Site URL</b><span class="text-success"> (OT UAT or PRD Site URL)</span></label>
+              <label for="siteUrl" class="form-label"><b>Site URL</b><span class="text-success"> (OneTrustUAT or PRD Site URL)</span></label>
               <select class="form-select" id="siteUrl" aria-label="Default select example">
                 <option selected>app-apac.onetrust.com</option>
                 <option value="1">uat.onetrust.com</option>
@@ -75,12 +75,16 @@
             <label for="firstName" class="form-label"><b>Information</b> <span class="text-success">(How to use CSV template)</span></label>
             <div class="card">
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">Download Purpose CSV Template</li>
-                <li class="list-group-item">Convert CSV file to JSON</li>
+                <li class="list-group-item">Download Purpose CSV Template
+                  <br>Right click "<a href="https://raw.githubusercontent.com/kanin-k/OT_Consent/main/csv/consent_purpose/template/msc_apidemo_purpose.csv">Here</a>"
+                  > Save link as...
+                  > Save to .csv</li>
+
+                <li class="list-group-item">Convert CSV file to JSON : <a href="https://csvjson.com/csv2json">Here</a></li>
               </ul>
             </div>
             <br>
-            <label for="firstName" class="form-label"><b>JSON Purpose Data </b><span class="text-success">(Below is an Example placeholder)</span></label>
+            <label for="firstName" class="form-label"><b>JSON Purpose Data </b><span class="text-success">(Below is an example placeholder)</span></label>
             <pre><textarea class="form-control" id="purposeCSV" rows="30" required></textarea></pre>
           </textarea>
           </div>
