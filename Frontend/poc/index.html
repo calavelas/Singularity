@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.79.0">
+    <title>OneTrust Mockup Webform</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="./assets/form-validation.css" rel="stylesheet">
+  </head>
+
+  <body class="bg-light">
+  <main>
+  <div class="container">
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" src="https://www.onetrust.com/wp-content/themes/onetrust/images/OneTrustLogo.svg" alt="" width="200" height="57">
+      <h2>OneTrust Purpose Migration Tools</h2>
+      <p class="lead">Webform for Bulk Import/Migrate Consent <b>(For OneTrust Universal Consent Module)</b></p>
+    </div>
+      <div class="col-md-7 col-lg-12">
+        <h4 class="mb-3">Client Credential</h4>
+        <form class="needs-validation" id="postForm" novalidate>
+          <div class="row g-3">
+            <div class="col-12">
+              <label for="siteUrl" class="form-label"><b>Site URL</b><span class="text-success"> (OT UAT or PRD Site URL)</span></label>
+              <select class="form-select" id="siteUrl" aria-label="Default select example">
+                <option selected>app-apac.onetrust.com</option>
+                <option value="1">uat.onetrust.com</option>
+              </select>
+            </div>
+
+            <div class="col-sm-6">
+              <label for="ClientID" class="form-label"><b>Client ID</b></label>
+              <input type="text" class="form-control" id="clientId" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                Please enter a valid ClientID.
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <label for="ClientSecret" class="form-label"><b>Client Secret</b></label>
+              <input type="text" class="form-control" id="clientSecret" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                Please enter a valid ClientSecret
+              </div>
+            </div>
+          </div>
+          <hr class="my-4">
+          <h4 class="mb-3">Consent Purpose</h4>
+          <div class="col-sm-12">
+            <label for="firstName" class="form-label"><b>Information</b> <span class="text-success">(How to use CSV template)</span></label>
+            <div class="card">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Download Purpose CSV Template</li>
+                <li class="list-group-item">Convert CSV file to JSON</li>
+              </ul>
+            </div>
+            <br>
+            <label for="firstName" class="form-label"><b>JSON Purpose Data </b><span class="text-success">(Below is an Example placeholder)</span></label>
+            <pre><textarea class="form-control" id="purposeCSV" rows="30" required></textarea></pre>
+          </textarea>
+          </div>
+          <hr class="my-4">
+          <button class="w-100 btn btn-primary btn-lg" type="submit" id="trigger">Submit</button>
+        </form>
+      </div>
+  </div>
+  </main>
+
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2021 Kanin Kongchatree<br><b>Metro Systems Corporation</b></p>
+  </footer>
+</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch-jsonp/1.0.6/fetch-jsonp.min.js"></script>
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="./assets/form-validation.js"></script>
+    <script src="./assets/getConsent.js"></script>
+    <script src="./assets/postForm.js"></script>
+
+  </body>
+</html>

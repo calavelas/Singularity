@@ -1,0 +1,32 @@
+[
+    {
+      "Name": "API DEMO P1 : Usecase A - MSC",
+      "Description": "ให้ความยินยอมในการทดสอบ API - Usecase A - MSC",
+      "Organizations": "MSC_LAB",
+      "DefaultLanguage": "th",
+      "ConsentLifeSpan": 0,
+      "Language1": "th",
+      "DefaultLanguage1": "TRUE",
+      "NameLanguage1": "API DEMO P1 : Usecase A - MSC",
+      "DescriptionLanguage1": "ให้ความยินยอมในการทดสอบ API : Usecase A - MSC",
+      "Language2": "en-us",
+      "DefaultLanguage2": "FALSE",
+      "NameLanguage2": "API DEMO P1 : Usecase A - MSC",
+      "DescriptionLanguage2": "Consent for testing API : Usecase A - MSC"
+    },
+    {
+      "Name": "API DEMO P2 : Usecase B - SIG",
+      "Description": "ให้ความยินยอมในการทดสอบ API - Usecase B - SIG",
+      "Organizations": "MSC_LAB",
+      "DefaultLanguage": "th",
+      "ConsentLifeSpan": 0,
+      "Language1": "th",
+      "DefaultLanguage1": "TRUE",
+      "NameLanguage1": "API DEMO P2 : Usecase B - SIG",
+      "DescriptionLanguage1": "ให้ความยินยอมในการทดสอบ API : Usecase B - SIG",
+      "Language2": "en-us",
+      "DefaultLanguage2": "FALSE",
+      "NameLanguage2": "API DEMO P2 : Usecase B - SIG",
+      "DescriptionLanguage2": "Consent for testing API : Usecase B - SIG"
+    }
+  ]
