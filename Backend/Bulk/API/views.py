@@ -50,7 +50,6 @@ def parsePurposeJSON(purposeCSV):
             "Organizations": [
                 item['Organizations']
             ], #API Require this field as list
-
             "Languages":[
                 {
                     'Language': item['Language1'],
@@ -134,7 +133,9 @@ def apiUpdateConsentPurpose(accessToken,siteUrl,parsedPurpose):
         respond = requests.put(request_url, headers=headers, data=json.dumps(request_payload)) #Data have to be sent in JSON format
         respond_json = respond.json()
         updateConsentPurposeResultLog.append(respond_json)
-    print('Purpose Created Result')
+        print(respond_json)
+        print(updateConsentPurposeResultLog)
+    print('Purpose Update Result')
     for item in updateConsentPurposeResultLog:
         if 'message' in item:
             print('Error! | '+item['message']) #Print Error Message
@@ -145,7 +146,7 @@ def apiUpdateConsentPurpose(accessToken,siteUrl,parsedPurpose):
                 }
             )
         else:
-            print('Created! | Purpose Name : '+item['Label']+ ' |' + ' ID : '+item['Id']+ ' |' ' Status : '+item['Status']) #Print Success Message + Items
+            print('Updated! | Purpose Name : '+item['Label']+ ' |' + ' ID : '+item['Id']+ ' |' ' Status : '+item['Status']) #Print Success Message + Items
             updateConsentPurposeResult.append(
                 {
                     "UpdateStatus" : "Success",
@@ -155,9 +156,6 @@ def apiUpdateConsentPurpose(accessToken,siteUrl,parsedPurpose):
                 }
             )
     return updateConsentPurposeResult
-
-
-
 
 # Create your views here.
 @csrf_exempt
@@ -171,9 +169,9 @@ def makeRequest(request):
             purposeCSV = payload['purposeCSV']
             accessToken = apiGetToken(clientId,clientSecret,siteUrl)
             parsedPurpose = parsePurposeJSON(purposeCSV)
-            createResult = apiCreateConsentPurpose(accessToken,siteUrl,parsedPurpose)
+            createdResult = apiCreateConsentPurpose(accessToken,siteUrl,parsedPurpose)
             updatedPurpose = updatePurposeList(accessToken,siteUrl,parsedPurpose)
-            updateResult = apiUpdateConsentPurpose(accessToken,siteUrl,parsedPurpose)
+            updatedResult = apiUpdateConsentPurpose(accessToken,siteUrl,parsedPurpose)
             #print(updateResult)
 
             response = json.dumps(
@@ -181,8 +179,8 @@ def makeRequest(request):
                 {
                     "Status": "OK",
                     "AccessToken": accessToken,
-                    "CreateResult": createResult,
-                    "UpdateResult" : updateResult,
+                    "CreateResult": createdResult,
+                    "UpdateResult" : updatedResult,
                     "UpdatedPurpose": updatedPurpose,
                 }
             ])
