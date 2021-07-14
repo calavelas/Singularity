@@ -21,7 +21,7 @@ myForm.addEventListener('submit', function (e){
 
     console.log(requestOptions)
 
-    fetch("http://singularity-backend:8000/api/", requestOptions)
+    fetch("http://singularity-backend.singularity:8000/api/", requestOptions)
     .then(response => response.json())
     .then(result => {
         console.log(result)
