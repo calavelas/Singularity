@@ -6,6 +6,7 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 import requests
 
+#FUNCTION
 def apiGetToken(clientId,clientSecret,siteUrl):
     #API Call
     #Get token from client_id and Secret
@@ -105,7 +106,6 @@ def apiCreateConsentPurpose(accessToken,siteUrl,parsedPurpose):
             )
     return createConsentPurposeResult
 
-
 def updatePurposeList(accessToken,siteUrl,parsedPurpose):
     # Get recently created consent id from API and Update to the purpose
     purposeList = apiGetPurposeList(accessToken,siteUrl) #Get OT Purpose List from API
@@ -178,7 +178,6 @@ def makeRequest(request):
             [
                 {
                     "Status": "OK",
-                    "AccessToken": accessToken,
                     "CreateResult": createdResult,
                     "UpdateResult" : updatedResult,
                     "UpdatedPurpose": updatedPurpose,
@@ -191,3 +190,6 @@ def makeRequest(request):
                 }])
 
         return HttpResponse(response,content_type='application/json')
+
+def index(request):
+    return HttpResponse('You should not be here!')
