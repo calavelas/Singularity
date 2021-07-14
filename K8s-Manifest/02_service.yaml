@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: singularity-backend
+  namespace: singularity
+spec:
+  ports:
+  - port: 8000
+    targetPort: 8000
+  selector:
+    app: singularity-backend
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: singularity-frontend
+  namespace: singularity
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: singularity-backend

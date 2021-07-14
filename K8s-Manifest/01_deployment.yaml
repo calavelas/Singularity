@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: singularity-backend
+  namespace: singularity
+spec:
+  selector:
+    matchLabels:
+      app: singularity-backend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: singularity-backend
+    spec:
+      containers:
+      - name: singularity-backend
+        image: calavelas/singularity_backend:0.1
+        ports:
+        - containerPort: 8000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: singularity-frontend
+  namespace: singularity
+spec:
+  selector:
+    matchLabels:
+      app: singularity-frontend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: singularity-frontend
+    spec:
+      containers:
+      - name: singularity-frontend
+        image: calavelas/singularity_frontend:0.1
+        ports:
+        - containerPort: 80
