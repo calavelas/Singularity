@@ -54,12 +54,19 @@ jobs:
           push: true
           tags: calavelas/backend-action:latest
 
-      - name: Update K8s Deployment (ImagePullPolicy = Always)
+      - name: Update K8s Deployment Backend (ImagePullPolicy = Always)
         uses: actions-hub/kubectl@master
         env:
           KUBE_CONFIG: ${{ secrets.KUBECONFIG }}
         with:
-          args: apply -f ./K8s-Manifest/01_deployment.yaml
+          args: rollout restart deployment singularity-backend -n singularity
+
+      - name: Update K8s Deployment Frontend (ImagePullPolicy = Always)
+        uses: actions-hub/kubectl@master
+        env:
+          KUBE_CONFIG: ${{ secrets.KUBECONFIG }}
+        with:
+          args: rollout restart deployment singularity-frontend -n singularity
 
       - name: Verify Deployment
         uses: actions-hub/kubectl@master
