@@ -57,11 +57,12 @@ jobs:
           push: true
           tags: calavelas/backend-action:latest
           
-  Test-k3s:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions-hub/kubectl@master
-      env:
-        KUBE_CONFIG: ${{ secrets.KUBECONFIG }}
-      with:
-        args: get pods -A
+      - name: CD to Manifest Folder
+        run: cd ./K8s-Manifest/
+        
+      - name: Apply manifest
+        uses: actions-hub/kubectl@master
+        env:
+          KUBE_CONFIG: ${{ secrets.KUBECONFIG }}
+        with:
+          args: apply -f .
