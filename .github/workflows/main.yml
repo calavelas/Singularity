@@ -53,9 +53,8 @@ jobs:
   Test-k3s:
     runs-on: ubuntu-latest
     steps:
-    - uses: danielr1996/kubectl-action@1.0.0
-      name: Get Pod
+    - uses: actions-hub/kubectl@master
+      env:
+        KUBE_CONFIG: ${{ secrets.KUBECONFIG }}
       with:
-        kubeconfig: ${{ secrets.KUBECONFIG }}
-        args: get pod -A
-
+        args: get pods -A
