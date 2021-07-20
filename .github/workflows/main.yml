@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: CICD Pipeline
 
 # Controls when the workflow will run
 on:
@@ -42,13 +42,20 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
         
       - name: Build Frontend
-        id: docker_build
         uses: docker/build-push-action@v2
         with:
           context: ./Frontend/temp
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: calavelas/frontend-action:latest
+          tags: calavelas/frontend-GHaction:latest
+          
+      - name: Build Backend
+        uses: docker/build-push-action@v2
+        with:
+          context: ./Backend
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: calavelas/backend-GHaction:latest
           
   Test-k3s:
     runs-on: ubuntu-latest
