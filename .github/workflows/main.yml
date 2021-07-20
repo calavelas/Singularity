@@ -47,5 +47,5 @@ jobs:
         with:
           context: ./Frontend/temp
           push: true
-          tags: calavelas/test:latest
+          tags: calavelas/frontend-action:latest
 
