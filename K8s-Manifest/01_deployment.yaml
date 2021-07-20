@@ -18,6 +18,7 @@ spec:
         image: calavelas/backend-action:latest
         ports:
         - containerPort: 8000
+        imagePullPolicy: Always
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -39,3 +40,4 @@ spec:
         image: calavelas/frontend-action:latest
         ports:
         - containerPort: 80
+        imagePullPolicy: Always

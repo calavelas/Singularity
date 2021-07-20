@@ -54,7 +54,7 @@ jobs:
           push: true
           tags: calavelas/backend-action:latest
 
-      - name: Apply Deployment Manifest
+      - name: Update K8s Deployment (ImagePullPolicy = Always)
         uses: actions-hub/kubectl@master
         env:
           KUBE_CONFIG: ${{ secrets.KUBECONFIG }}
