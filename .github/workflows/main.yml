@@ -49,4 +49,13 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: calavelas/frontend-action:latest
+          
+  Test-k3s:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: danielr1996/kubectl-action@1.0.0
+      name: Get Pod
+      with:
+        kubeconfig: ${{ secrets.KUBECONFIG }}
+        args: get pod -A
 
