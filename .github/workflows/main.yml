@@ -54,15 +54,12 @@ jobs:
       #     push: true
       #     tags: calavelas/backend-action:latest
 
-      - name: CD to K8s Manifest Folder
-        run: cd ./K8s-Manifest/
-
       - name: Apply Deployment Manifest
         uses: actions-hub/kubectl@master
         env:
           KUBE_CONFIG: ${{ secrets.KUBECONFIG }}
         with:
-          args: apply -f 01_deployment.yaml
+          args: apply -f ./K8s-Manifest/01_deployment.yaml
 
       - name: Verify Deployment
         uses: actions-hub/kubectl@master
