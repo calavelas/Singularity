@@ -84,10 +84,12 @@ def apiCreateConsentPurpose(accessToken,siteUrl,parsedPurpose):
         respond = requests.post(request_url, headers=headers, data=json.dumps(request_payload))
         respond_json = respond.json()
         createConsentPurposeResultLog.append(respond_json)
+    print('=====================')
     print('Purpose Created Result')
     for item in createConsentPurposeResultLog:
         if 'message' in item:
             print('Error! | '+item['message']) #Print Error Message
+            print('=====================')
             createConsentPurposeResult.append(
                 {
                     "CreateStatus" : "Error",
@@ -96,6 +98,7 @@ def apiCreateConsentPurpose(accessToken,siteUrl,parsedPurpose):
             )
         else:
             print('Created! | Purpose Name : '+item['Label']+ ' |' + ' ID : '+item['Id']+ ' |' ' Status : '+item['Status']) #Print Success Message + Items
+            print('=====================')
             createConsentPurposeResult.append(
                 {
                     "CreateStatus" : "Success",
@@ -133,12 +136,11 @@ def apiUpdateConsentPurpose(accessToken,siteUrl,parsedPurpose):
         respond = requests.put(request_url, headers=headers, data=json.dumps(request_payload)) #Data have to be sent in JSON format
         respond_json = respond.json()
         updateConsentPurposeResultLog.append(respond_json)
-        print(respond_json)
-        print(updateConsentPurposeResultLog)
     print('Purpose Update Result')
     for item in updateConsentPurposeResultLog:
         if 'message' in item:
             print('Error! | '+item['message']) #Print Error Message
+            print('=====================')
             updateConsentPurposeResult.append(
                 {
                     "UpdateStatus" : "Error",
@@ -147,6 +149,7 @@ def apiUpdateConsentPurpose(accessToken,siteUrl,parsedPurpose):
             )
         else:
             print('Updated! | Purpose Name : '+item['Label']+ ' |' + ' ID : '+item['Id']+ ' |' ' Status : '+item['Status']) #Print Success Message + Items
+            print('=====================')
             updateConsentPurposeResult.append(
                 {
                     "UpdateStatus" : "Success",
@@ -172,7 +175,6 @@ def makeRequest(request):
             createdResult = apiCreateConsentPurpose(accessToken,siteUrl,parsedPurpose)
             updatedPurpose = updatePurposeList(accessToken,siteUrl,parsedPurpose)
             updatedResult = apiUpdateConsentPurpose(accessToken,siteUrl,parsedPurpose)
-            #print(updateResult)
 
             response = json.dumps(
             [

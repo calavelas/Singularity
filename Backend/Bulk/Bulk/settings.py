@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-is-qkk=6^ca7x3%m2z!p8!fse+%ty*ja7ri9h=u^f3v+!%e=1%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['onetrustapi.calavelas.net','onetrustapi.calavelas.int']
+ALLOWED_HOSTS = ['onetrustapi.calavelas.net','onetrustapi.calavelas.int','localhost']
 
 
 # Application definition
