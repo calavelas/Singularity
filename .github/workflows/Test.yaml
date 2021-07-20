@@ -22,6 +22,9 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
+        name: Git checkout 
+        uses: actions/checkout@v2
+      -
         name: CD to Frontend
         working-directory: ./Frontend/temp/
       -
