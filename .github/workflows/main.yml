@@ -47,7 +47,7 @@ jobs:
           context: ./Frontend/temp
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: calavelas/frontend-GHaction:latest
+          tags: calavelas/frontend-action:latest
           
       - name: Build Backend
         uses: docker/build-push-action@v2
@@ -55,7 +55,7 @@ jobs:
           context: ./Backend
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: calavelas/backend-GHaction:latest
+          tags: calavelas/backend-action:latest
           
   Test-k3s:
     runs-on: ubuntu-latest
